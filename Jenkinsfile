@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..from github jenkins file'
-                echo $MY_KUBECONFIG
+                echo " Reading ${MY_KUBECONFIG}"
             }
         }
         stage('Deploy') {
