@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+     environment {
+        MY_KUBECONFIG = credentials('my-kubeconfig')
+    }
     stages {
         stage('Build') {
             steps {
@@ -11,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..from github jenkins file'
+                echo $MY_KUBECONFIG
             }
         }
         stage('Deploy') {
