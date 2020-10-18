@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+     agent {
+        // Define agent details here
+    }
 
      environment {
         MY_KUBECONFIG = credentials('my-kubeconfig')
