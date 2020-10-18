@@ -45,6 +45,8 @@ pipeline {
               variable: 'joke')
           ]) {
             print 'joke=' + joke
+            sh echo joke >test.txt
+            sh cat test.txt
             print 'joke.collect { it }=' + joke.collect { it }
           }
         }
