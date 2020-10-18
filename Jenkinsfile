@@ -21,6 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying.... this is a test'
+                 sh 'printenv'
             }
         }
     }
