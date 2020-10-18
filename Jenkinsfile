@@ -1,5 +1,8 @@
 pipeline {
      agent any
+      environment { 
+        TEST_SECRET1 = 'TEST_SECRET1_VALUE'
+    }
 
     stages {
         stage('Build') {
@@ -10,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                 TEST_SECRET1 = ['abcd'] 
+                 
                 echo 'Testing..from github jenkins file'
                 echo " Reading ${TEST_SECRET1}"
             }
