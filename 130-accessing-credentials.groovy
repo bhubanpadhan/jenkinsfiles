@@ -94,6 +94,15 @@ pipeline {
 }
             
           }
+          
+          withCredentials([string(credentialsId: 'joke-of-the-day', variable: 'joke')]) {
+    // some block
+            echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+            print 'joke=' + joke
+            sh 'cat $joke'
+            
+}
+          
         }
       }
     }
