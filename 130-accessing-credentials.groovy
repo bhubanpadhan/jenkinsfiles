@@ -66,9 +66,15 @@ pipeline {
             lines.each{ result += it }
             echo "Collect each: " + result
             
-            new File('$JENKINS_HOME/','Example.txt').withWriter('utf-8') { 
-         writer -> writer.writeLine 'Hello World' 
-            }
+           // new File('$JENKINS_HOME/','Example.txt').withWriter('utf-8') { 
+       //  writer -> writer.writeLine 'Hello World' 
+       //     }
+            
+            new File('$JENKINS_HOME/','Example.txt').withWriter('utf-8') { writer ->
+    writer.writeLine 'Into the ancient pond'
+    writer.writeLine 'A frog jumps'
+    writer.writeLine 'Water’s sound!'
+}
             echo "==========================================="
             sh 'cat $JENKINS_HOME/Example.txt'
             echo "==========================================="
