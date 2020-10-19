@@ -99,7 +99,7 @@ pipeline {
     // some block
             echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
             print 'joke=' + joke
-            sh 'cat $joke'
+            sh 'echo $joke'
             
 }
           
