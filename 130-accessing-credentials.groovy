@@ -70,14 +70,14 @@ pipeline {
        //  writer -> writer.writeLine 'Hello World' 
        //     }
             
-            new File('$JENKINS_HOME/','Example.txt').withWriter('utf-8') { writer ->
+            new File('/home/bhuban/.jenkins/','Example.txt').withWriter('utf-8') { writer ->
     writer.writeLine 'Into the ancient pond'
     writer.writeLine 'A frog jumps'
     writer.writeLine 'Water’s sound!'
 }
             echo "==========================================="
            // sh 'cat $JENKINS_HOME/Example.txt'
-             sh 'ls $JENKINS_HOME'
+             sh 'ls /home/bhuban/.jenkins'
             echo "==========================================="
           }
         }
