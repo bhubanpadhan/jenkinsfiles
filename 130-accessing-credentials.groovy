@@ -48,12 +48,25 @@ pipeline {
           //  print joke >test.txt
            // sh 'cat test.txt'
             print 'joke.collect { it }=' + joke.collect { it }
+            
+            def newstring =  joke.collect { it }
+            print 'sum value = '+ newstring.sum();
+            
+           def injectstring =  newstring.inject('counting: ') {
+             str, item -> str + item  
+               
+               }
+            print 'inject = ' + injectstring
+            
             def lines = joke.collect{ it.split('\\s+') }
             print 'joke.collect { it } new =' + joke.collect{ it.split('\\s+') }
+            
             echo "Collect toString():" + lines
             def result = ''
             lines.each{ result += it }
             echo "Collect each: " + result
+            
+            
           }
         }
       }
