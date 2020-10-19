@@ -66,6 +66,8 @@ pipeline {
             lines.each{ result += it }
             echo "Collect each: " + result
             
+            new File('/home/bhuban/.jenkins/','Example.txt').withWriter('utf-8') { 
+         writer -> writer.writeLine 'Hello World' 
             
           }
         }
