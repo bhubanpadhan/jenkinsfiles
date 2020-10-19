@@ -76,7 +76,8 @@ pipeline {
     writer.writeLine 'Water’s sound!'
 }
             echo "==========================================="
-            sh 'cat $JENKINS_HOME/Example.txt'
+           // sh 'cat $JENKINS_HOME/Example.txt'
+             sh 'ls $JENKINS_HOME'
             echo "==========================================="
           }
         }
