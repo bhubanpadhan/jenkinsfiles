@@ -82,7 +82,8 @@ pipeline {
             sh 'echo $joke > Example.txt'
             echo "==========================================="
            // sh 'cat $JENKINS_HOME/Example.txt'
-             sh 'ls /home/bhuban/.jenkins'
+             //sh 'ls /home/bhuban/.jenkins'
+            sh 'printenv'
             echo "==========================================="
             
             withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
