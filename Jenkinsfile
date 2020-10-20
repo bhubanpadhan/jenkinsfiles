@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                 script {
                 echo 'Building..prefs.xml'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Pull prefs.xml template"
@@ -18,7 +19,7 @@ pipeline {
                           println apiKey
                  sh 'sed s/SENDER_SHARED_SECRET/${SENDER_SHARED_SECRET_TEXT}/g prefs.xml > prefs1.xml'
                  sh 'cat prefs1.xml'
-                 
+                 } 
                  
             }
         }
