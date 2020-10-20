@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Comergent>
+  <DataServices transientState="true">
+    <DataSource transientState="true">
+      <SA transientState="true">
+        <Password>REPLACE_SA_PWD</Password>
+        <UserId>sa</UserId>
+      </SA>
+         <SENDER_SHARED_SECRET  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender shared secret which will be passed in cXML Sender shared scret field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">REPLACE_SENDER_SHARED_SECRET</SENDER_SHARED_SECRET>
+
+         <SENDER_IDENTITY_EU  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender identity which will be passed in Sender identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">REPLACE_SENDER_IDENTITY_EU</SENDER_IDENTITY_EU>
+
+         <SENDER_IDENTITY_NA  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender identity which will be passed in Sender identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">REPLACE_SENDER_IDENTITY_NA</SENDER_IDENTITY_NA>
+
+         <FROM_IDENTITY_EU  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="From identity which will be passed in cXML From identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">Evo</FROM_IDENTITY_EU>`
+
+         <FROM_IDENTITY_NA  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="From identity which will be passed in cXML From identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">Evo</FROM_IDENTITY_NA>
+
+         <SENDER_IDENTITY  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender identity which will be passed in Sender identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">poc-comradb2b</SENDER_IDENTITY>
+
+         <TO_IDENTITY  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="To identity which will be passed in cXML To identity field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">test</TO_IDENTITY>
+
+         <SENDER_SHARED_SECRET_NA  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender shared secret which will be passed in cXML Sender shared scret field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">REPLACE_SENDER_SHARED_SECRET_NA</SENDER_SHARED_SECRET_NA>
+
+          <SENDER_SHARED_SECRET_EU  ChangeOnlyAtBootTime="false" boxsize="60" controlType="text" defaultChoice="true" displayOptions="Sender shared secret which will be passed in cXML Sender shared scret field" displayQuestion="" help="" runtimeDisplayed="true" visible="true">REPLACE_SENDER_SHARED_SECRET_EU</SENDER_SHARED_SECRET_EU>
+
+          </IDT_ORDER_REQUEST_AUTH>
+
+  <Debug transientState="true">
+    <packageFlags>ALL,showRequest,showHeader</packageFlags>
+    <level>INFO</level>
+  </Debug>
+</Comergent>
+
