@@ -41,16 +41,15 @@ pipeline {
 //}
             
                       
-    //                  def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
-//def fileText = "/home/bhuban/.jenkins/prefs1.xml"
-//for ( index in 1..9 ) {
-//	fileText = (fileText =~ /REPLACE_SENDER_SHARED_SECRET/).replaceFirst("HeLLO")
-//}
-//myFile.write(fileText)
+                     def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
+def fileText = "/home/bhuban/.jenkins/prefs1.xml"
+
+	fileText = (fileText =~ /REPLACE_SENDER_SHARED_SECRET/).replace("HeLLO")
+myFile.write(fileText)
                       
                       
                       
-                      sh 'sed s/REPLACE_SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
+                   //   sh 'sed s/REPLACE_SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
                  sh 'cat prefs1.xml'
 			// sh 'cat test.txt'
 			 sh 'echo ${apiKey}'
