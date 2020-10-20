@@ -28,11 +28,20 @@ pipeline {
                       //String filenew = readFile('/home/bhuban/.jenkins/prefs.xml').replaceAll('REPLACE_SENDER_SHARED_SECRET','REPLACE_SENDER_SHARED_SECRET99999999')
                       //writeFile file:'/home/bhuban/.jenkins/prefs1.xml', text: filenew
                       
-                      new File( '/home/bhuban/.jenkins/prefs1.xml' ).withWriter { w ->
-  new File( '/home/bhuban/.jenkins/prefs.xml' ).eachLine { line ->
-    w << line.replaceAll( 'REPLACE_SENDER_SHARED_SECRET', 'REPLACE_SENDER_SHARED_SECRET!!!' ) + System.getProperty("line.separator")
-  }
+                 //     new File( '/home/bhuban/.jenkins/prefs1.xml' ).withWriter { w ->
+ // new File( '/home/bhuban/.jenkins/prefs.xml' ).eachLine { line ->
+//    w << line.replaceAll( 'REPLACE_SENDER_SHARED_SECRET', 'REPLACE_SENDER_SHARED_SECRET!!!' ) + System.getProperty("line.separator")
+//  }
+//}
+            
+                      
+                      def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
+def fileText = /home/bhuban/.jenkins/prefs1.xml
+for ( index in 1..9 ) {
+	fileText = (fileText =~ /REPLACE_SENDER_SHARED_SECRET/).replaceFirst("${apiKey}")
 }
+myFile.write(fileText)
+                      
                       
                       
                     //  sh 'sed s/REPLACE_SENDER_SHARED_SECRET/${apiKey}/g prefs.xml > prefs1.xml'
