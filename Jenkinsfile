@@ -24,7 +24,7 @@ pipeline {
                           //def newConfig = file.text.replace('8080', 'REPLACE_SENDER_SHARED_SECRET')
                           //file.text = newConfig
                       
-                      String filenew = readFile('/home/bhuban/.jenkins/prefs.xml').replaceAll('8888888888888','REPLACE_SENDER_SHARED_SECRET')
+                      String filenew = readFile('/home/bhuban/.jenkins/prefs.xml').replaceAll('REPLACE_SENDER_SHARED_SECRET','REPLACE_SENDER_SHARED_SECRET99999999')
 writeFile file:'/home/bhuban/.jenkins/prefs1.xml', text: filenew
                       
                       
