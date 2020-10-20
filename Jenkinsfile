@@ -17,7 +17,8 @@ pipeline {
                             variable: 'SENDER_SHARED_SECRET_TEXT')]) {
                               apiKey = "${SENDER_SHARED_SECRET_TEXT}"
                              }
-                          println apiKey > test.txt
+                          println apiKey 
+			 //> test.txt
                       
                       
                           //def file = new File('/home/bhuban/.jenkins/prefs.xml')
@@ -46,7 +47,7 @@ pipeline {
                       
                       sh 'sed s/REPLACE_SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
                  sh 'cat prefs1.xml'
-			 sh 'cat test.txt'
+			// sh 'cat test.txt'
 			 sh 'echo ${apiKey}'
                  } 
                  
