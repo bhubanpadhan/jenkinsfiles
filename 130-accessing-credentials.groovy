@@ -53,7 +53,7 @@ pipeline {
               credentialsId: 'joke-of-the-day',
               variable: 'joke')
           ]) {
-            print 'joke=' + joke
+            print 'joke=' + ${joke}
             echo joke
             echo "username is $joke"
           //  print joke >test.txt
