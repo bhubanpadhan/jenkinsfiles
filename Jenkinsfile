@@ -16,6 +16,11 @@ pipeline {
                 withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
                             variable: 'SENDER_SHARED_SECRET_TEXT')]) {
                               apiKey = "${SENDER_SHARED_SECRET_TEXT}"
+			println SENDER_SHARED_SECRET_TEXT
+			      sh 'echo $apiKey'
+			sh 'echo ${apiKey}'
+			sh 'echo "${apiKey}"'
+			sh 'echo "${SENDER_SHARED_SECRET_TEXT}"'
                              }
                           println apiKey 
 			 //> test.txt
