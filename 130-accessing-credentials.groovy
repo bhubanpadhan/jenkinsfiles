@@ -39,6 +39,15 @@ pipeline {
     stage('string (secret text)') {
       steps {
         script {
+          
+              withCredentials([string(credentialsId: 'joke-of-the-day',
+                            variable: 'joke')]) {
+      apiKey = "\nAPI key: ${joke}\n"
+    }
+          
+    println apiKey
+          
+          
           withCredentials([
             string(
               credentialsId: 'joke-of-the-day',
