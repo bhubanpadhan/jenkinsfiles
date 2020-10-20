@@ -25,37 +25,43 @@ pipeline {
                           println REPLACE_SA_PWD_VAL 
 			 
 			 
-                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
-                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
-                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                withCredentials([string(credentialsId: 'REPLACE_SENDER_IDENTITY_EU',
+                            variable: 'REPLACE_SENDER_IDENTITY_EU_TEXT')]) {
+                              REPLACE_SENDER_IDENTITY_EU_VAL = "${REPLACE_SENDER_IDENTITY_EU_TEXT}"
                              }
-                          println SENDER_SHARED_SECRET_VAL 
+                          println SREPLACE_SENDER_IDENTITY_EU_VAL 
 			 
-                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
-                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
-                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                withCredentials([string(credentialsId: 'REPLACE_SENDER_IDENTITY_NA',
+                            variable: 'REPLACE_SENDER_IDENTITY_NA_TEXT')]) {
+                              REPLACE_SENDER_IDENTITY_NA_VAL = "${REPLACE_SENDER_IDENTITY_NA_TEXT}"
                              }
-                          println SENDER_SHARED_SECRET_VAL
+                          println REPLACE_SENDER_IDENTITY_NA_VAL
 			 
-                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
-                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
-                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                withCredentials([string(credentialsId: 'REPLACE_SENDER_SHARED_SECRET_NA',
+                            variable: 'REPLACE_SENDER_SHARED_SECRET_NA_TEXT')]) {
+                              REPLACE_SENDER_SHARED_SECRET_NA_VAL = "${REPLACE_SENDER_SHARED_SECRET_NA_TEXT}"
                              }
-                          println SENDER_SHARED_SECRET_VAL 
+                          println REPLACE_SENDER_SHARED_SECRET_NA_VAL 
 			                  
                     // replace string
 			 def xmlFile = new File("/home/bhuban/.jenkins/prefs.xml") 
                          def xmlFileText =xmlFile.text
 	                xmlFileText = xmlFileText.replace("REPLACE_SENDER_SHARED_SECRET", SENDER_SHARED_SECRET_VAL) 
 			 xmlFileText = xmlFileText.replace("REPLACE_SA_PWD", REPLACE_SA_PWD_VAL) 
-                        myFile.write(xmlFileText)
+			 xmlFileText = xmlFileText.replace("REPLACE_SENDER_IDENTITY_EU", REPLACE_SENDER_IDENTITY_EU_VAL) 
+			 xmlFileText = xmlFileText.replace("REPLACE_SENDER_IDENTITY_NA", REPLACE_SENDER_IDENTITY_NA_VAL) 
+			 
+			 xmlFileText = xmlFileText.replace("REPLACE_SENDER_SHARED_SECRET_NA", REPLACE_SENDER_SHARED_SECRET_NA_VAL) 
+			 
+			 
+			 
+                        xmlFile.write(xmlFileText)
                       
                       
                       
                    //   sh 'sed s/REPLACE_SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
                  sh 'cat prefs.xml'
-			// sh 'cat test.txt'
-			 sh 'echo ${apiKey}'
+	
                  } 
                  
             }
@@ -63,7 +69,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying.... this is a test'
+                echo 'Deploying.... this is a poc'
                 // sh 'printenv'
             }
         }
