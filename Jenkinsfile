@@ -19,7 +19,7 @@ pipeline {
                           println apiKey
                       
                       
-                          def file = new File('perf.xml')
+                          def file = new File('prefs.xml')
     def newConfig = file.text.replace('8080', 'REPLACE_SENDER_SHARED_SECRET')
     file.text = newConfig
                       
