@@ -29,7 +29,7 @@ pipeline {
                             variable: 'REPLACE_SENDER_IDENTITY_EU_TEXT')]) {
                               REPLACE_SENDER_IDENTITY_EU_VAL = "${REPLACE_SENDER_IDENTITY_EU_TEXT}"
                              }
-                          println SREPLACE_SENDER_IDENTITY_EU_VAL 
+                          println REPLACE_SENDER_IDENTITY_EU_VAL 
 			 
                 withCredentials([string(credentialsId: 'REPLACE_SENDER_IDENTITY_NA',
                             variable: 'REPLACE_SENDER_IDENTITY_NA_TEXT')]) {
