@@ -11,7 +11,8 @@ pipeline {
                 echo 'Building..prefs.xml'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Pull prefs.xml template"
-                sh 'curl https://raw.githubusercontent.com/bhubanpadhan/jenkinsfiles/main/prefs.xml > prefs.xml'
+                sh 'curl https://raw.githubusercontent.com/bhubanpadhan/jenkinsfiles/main/prefs.xml >  $JENKINS_HOME/prefs.xml'
+                sh 'cat  $JENKINS_HOME/prefs.xml'
                 withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
                             variable: 'SENDER_SHARED_SECRET_TEXT')]) {
                               apiKey = "${SENDER_SHARED_SECRET_TEXT}"
@@ -19,7 +20,7 @@ pipeline {
                           println apiKey
                       
                       
-                          def file = new File('prefs.xml')
+                          def file = new File(' $JENKINS_HOME/prefs.xml')
     def newConfig = file.text.replace('8080', 'REPLACE_SENDER_SHARED_SECRET')
     file.text = newConfig
                       
