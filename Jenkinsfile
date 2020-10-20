@@ -17,7 +17,7 @@ pipeline {
                               apiKey = "\nAPI key: ${SENDER_SHARED_SECRET_TEXT}\n"
                              }
                           println apiKey
-                 sh 'sed s/SENDER_SHARED_SECRET/${SENDER_SHARED_SECRET_TEXT}/g prefs.xml > prefs1.xml'
+                 sh 'sed s/SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
                  sh 'cat prefs1.xml'
                  } 
                  
