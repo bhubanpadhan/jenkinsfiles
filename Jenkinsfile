@@ -36,7 +36,7 @@ pipeline {
             
                       
                       def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
-def fileText = /home/bhuban/.jenkins/prefs1.xml
+def fileText = "/home/bhuban/.jenkins/prefs1.xml"
 for ( index in 1..9 ) {
 	fileText = (fileText =~ /REPLACE_SENDER_SHARED_SECRET/).replaceFirst("${apiKey}")
 }
