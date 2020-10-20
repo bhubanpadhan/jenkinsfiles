@@ -42,9 +42,10 @@ pipeline {
             
                       
                      def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
-def fileText = "/home/bhuban/.jenkins/prefs1.xml"
+def fileText =myFile.text
 
-	fileText = (fileText =~ /REPLACE_SENDER_SHARED_SECRET/).replace("HeLLO")
+	//fileText = (fileText = /REPLACE_SENDER_SHARED_SECRET/).replace("HeLLO")
+			 fileText = fileText.replace("REPLACE_SENDER_SHARED_SECRET", "portReplacementStr") 
 myFile.write(fileText)
                       
                       
