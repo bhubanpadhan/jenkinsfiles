@@ -14,10 +14,10 @@ pipeline {
                 sh 'curl https://raw.githubusercontent.com/bhubanpadhan/jenkinsfiles/main/prefs.xml > prefs.xml'
                 withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
                             variable: 'SENDER_SHARED_SECRET_TEXT')]) {
-                              apiKey = "\nAPI key: ${SENDER_SHARED_SECRET_TEXT}\n"
+                              apiKey = "${SENDER_SHARED_SECRET_TEXT}"
                              }
                           println apiKey
-                 sh 'sed s/SENDER_SHARED_SECRET/apiKey/g prefs.xml > prefs1.xml'
+                 sh 'sed s/REPLACE_SENDER_SHARED_SECRET/$apiKey/g prefs.xml > prefs1.xml'
                  sh 'cat prefs1.xml'
                  } 
                  
