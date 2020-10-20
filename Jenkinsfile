@@ -17,8 +17,15 @@ pipeline {
                               apiKey = "${SENDER_SHARED_SECRET_TEXT}"
                              }
                           println apiKey
-                      sh 'sed s/REPLACE_SENDER_SHARED_SECRET/${apiKey}/g prefs.xml > prefs1.xml'
-                 sh 'cat prefs1.xml'
+                      
+                      
+                          def file = new File('perf.xml')
+    def newConfig = file.text.replace('8080', 'REPLACE_SENDER_SHARED_SECRET')
+    file.text = newConfig
+                      
+                      
+                    //  sh 'sed s/REPLACE_SENDER_SHARED_SECRET/${apiKey}/g prefs.xml > prefs1.xml'
+                 sh 'cat prefs.xml'
                  sh 'echo $apiKey'
                  } 
                  
