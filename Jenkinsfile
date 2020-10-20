@@ -12,41 +12,43 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Pull prefs.xml template"
                 sh 'curl https://raw.githubusercontent.com/bhubanpadhan/jenkinsfiles/main/prefs.xml >  $JENKINS_HOME/prefs.xml'
-               // sh 'cat  $JENKINS_HOME/prefs.xml'
                 withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
                             variable: 'SENDER_SHARED_SECRET_TEXT')]) {
-                              apiKey = "${SENDER_SHARED_SECRET_TEXT}"
-			println SENDER_SHARED_SECRET_TEXT
-			      sh 'echo $apiKey'
-			sh 'echo ${apiKey}'
-			sh 'echo "${apiKey}"'
-			sh 'echo "${SENDER_SHARED_SECRET_TEXT}"'
+                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
                              }
-                          println apiKey 
-			 //> test.txt
-                      
-                      
-                          //def file = new File('/home/bhuban/.jenkins/prefs.xml')
-                          //def newConfig = file.text.replace('8080', 'REPLACE_SENDER_SHARED_SECRET')
-                          //file.text = newConfig
-                      
-                      
-                      //String filenew = readFile('/home/bhuban/.jenkins/prefs.xml').replaceAll('REPLACE_SENDER_SHARED_SECRET','REPLACE_SENDER_SHARED_SECRET99999999')
-                      //writeFile file:'/home/bhuban/.jenkins/prefs1.xml', text: filenew
-                      
-                 //     new File( '/home/bhuban/.jenkins/prefs1.xml' ).withWriter { w ->
- // new File( '/home/bhuban/.jenkins/prefs.xml' ).eachLine { line ->
-//    w << line.replaceAll( 'REPLACE_SENDER_SHARED_SECRET', 'REPLACE_SENDER_SHARED_SECRET!!!' ) + System.getProperty("line.separator")
-//  }
-//}
-            
-                      
-                     def myFile = new File("/home/bhuban/.jenkins/prefs.xml") 
-def fileText =myFile.text
-
-	//fileText = (fileText = /REPLACE_SENDER_SHARED_SECRET/).replace("HeLLO")
-			 fileText = fileText.replace("REPLACE_SENDER_SHARED_SECRET", apiKey) 
-myFile.write(fileText)
+                          println SENDER_SHARED_SECRET_VAL 
+			 
+                withCredentials([string(credentialsId: 'REPLACE_SA_PWD',
+                            variable: 'REPLACE_SA_PWD_TEXT')]) {
+                              REPLACE_SA_PWD_VAL = "${REPLACE_SA_PWD_TEXT}"
+                             }
+                          println REPLACE_SA_PWD_VAL 
+			 
+			 
+                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
+                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
+                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                             }
+                          println SENDER_SHARED_SECRET_VAL 
+			 
+                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
+                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
+                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                             }
+                          println SENDER_SHARED_SECRET_VAL
+			 
+                withCredentials([string(credentialsId: 'SENDER_SHARED_SECRET',
+                            variable: 'SENDER_SHARED_SECRET_TEXT')]) {
+                              SENDER_SHARED_SECRET_VAL = "${SENDER_SHARED_SECRET_TEXT}"
+                             }
+                          println SENDER_SHARED_SECRET_VAL 
+			                  
+                    // replace string
+			 def xmlFile = new File("/home/bhuban/.jenkins/prefs.xml") 
+                         def xmlFileText =xmlFile.text
+	                xmlFileText = xmlFileText.replace("REPLACE_SENDER_SHARED_SECRET", SENDER_SHARED_SECRET_VAL) 
+			 xmlFileText = xmlFileText.replace("REPLACE_SA_PWD", REPLACE_SA_PWD_VAL) 
+                        myFile.write(xmlFileText)
                       
                       
                       
